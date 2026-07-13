@@ -96,6 +96,14 @@ Documento vivo. Se actualiza al cierre de cada sprint. Fuente de verdad de alcan
   cada vez que se use una vía alternativa.
 - **Licencia sin decidir**: no bloquea Sprint 0-4, pero debe resolverse antes de Sprint 5
   (publicación real).
+- **Sin `pnpm-lock.yaml` todavía**: consecuencia directa del bloqueo de Kaspersky — nunca se pudo
+  ejecutar `pnpm install` localmente para generarlo. El primer CI del PR de Sprint 0 falló porque
+  `setup-node` con `cache: pnpm` requiere ese lockfile. Se relajó temporalmente el workflow
+  (`ci.yml`): sin `cache: pnpm` y `pnpm install` en vez de `--frozen-lockfile`. **Pendiente**:
+  una vez que exista el lockfile real (tras aplicar la exclusión de Kaspersky y correr
+  `pnpm install` localmente al menos una vez, o generándolo desde un runner limpio), restaurar
+  `cache: pnpm` y `--frozen-lockfile` para instalaciones reproducibles, y commitear
+  `pnpm-lock.yaml`.
 
 ## Pendiente de acción humana (no se puede resolver de forma autónoma)
 
