@@ -35,14 +35,14 @@ técnicos.
 
 ## Roles y autorización (resumen operativo)
 
-| Rol | Puede leer | Puede escribir |
-|---|---|---|
-| `anon` (público) | Solo `published` | Nada |
-| `viewer` (autenticado) | `published` + favoritos propios | Favoritos/colecciones propias |
-| `contributor` | `published` + sus propios drafts | Crea/edita sus propios drafts |
-| `editor` | Todo contenido en revisión | Transiciona `draft → in_review`, edita contenido |
-| `reviewer` | Todo | Aprueba/rechaza (`approved`/`changes_requested`) |
-| `admin` | Todo | Publica, gestiona usuarios y roles |
+| Rol                    | Puede leer                       | Puede escribir                                   |
+| ---------------------- | -------------------------------- | ------------------------------------------------ |
+| `anon` (público)       | Solo `published`                 | Nada                                             |
+| `viewer` (autenticado) | `published` + favoritos propios  | Favoritos/colecciones propias                    |
+| `contributor`          | `published` + sus propios drafts | Crea/edita sus propios drafts                    |
+| `editor`               | Todo contenido en revisión       | Transiciona `draft → in_review`, edita contenido |
+| `reviewer`             | Todo                             | Aprueba/rechaza (`approved`/`changes_requested`) |
+| `admin`                | Todo                             | Publica, gestiona usuarios y roles               |
 
 Ninguna transición de `content_status` salta pasos (p. ej. `draft → published` directo no
 existe como operación permitida para ningún rol excepto quizá `admin` en casos documentados

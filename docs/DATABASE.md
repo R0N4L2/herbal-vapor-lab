@@ -25,18 +25,18 @@ Agrupación funcional según `CLAUDE.md` Parte V — el detalle exacto de column
 a cada migración, no se duplica aquí para evitar que este documento quede desincronizado del
 esquema real:
 
-| Dominio | Propósito | Ejemplos de tablas |
-|---|---|---|
-| Identidad | Usuarios, roles, perfiles | `profiles`, `user_roles` |
-| Botánico | Taxonomía y partes de planta | `plants`, `plant_parts`, `plant_synonyms` |
-| Compuestos | Fitoquímica | `compounds`, `plant_compounds` |
-| Afirmaciones/Evidencia | Núcleo del modelo editorial | `claims`, `evidence_items`, `evidence_levels` |
-| Fuentes | Bibliografía citable | `sources`, `source_authors` |
-| Seguridad | Interacciones, contraindicaciones | `safety_warnings`, `drug_interactions` |
-| Cuarentena de inhalación | ADR-004 | `inhalation_records` |
-| Contenido editorial | Flujo de publicación | `articles`, `content_status_history` |
-| Funciones de usuario | Cuentas, favoritos | `favorites`, `collections` |
-| Búsqueda | Índices de texto completo | vistas materializadas / columnas `tsvector` |
+| Dominio                  | Propósito                         | Ejemplos de tablas                            |
+| ------------------------ | --------------------------------- | --------------------------------------------- |
+| Identidad                | Usuarios, roles, perfiles         | `profiles`, `user_roles`                      |
+| Botánico                 | Taxonomía y partes de planta      | `plants`, `plant_parts`, `plant_synonyms`     |
+| Compuestos               | Fitoquímica                       | `compounds`, `plant_compounds`                |
+| Afirmaciones/Evidencia   | Núcleo del modelo editorial       | `claims`, `evidence_items`, `evidence_levels` |
+| Fuentes                  | Bibliografía citable              | `sources`, `source_authors`                   |
+| Seguridad                | Interacciones, contraindicaciones | `safety_warnings`, `drug_interactions`        |
+| Cuarentena de inhalación | ADR-004                           | `inhalation_records`                          |
+| Contenido editorial      | Flujo de publicación              | `articles`, `content_status_history`          |
+| Funciones de usuario     | Cuentas, favoritos                | `favorites`, `collections`                    |
+| Búsqueda                 | Índices de texto completo         | vistas materializadas / columnas `tsvector`   |
 
 ## Regla de oro: `content_status`
 

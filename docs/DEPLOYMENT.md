@@ -2,11 +2,11 @@
 
 ## Entornos
 
-| Entorno | Rama | Base de datos | URL |
-|---|---|---|---|
-| Local | cualquiera | Supabase local (Docker) | `localhost:3000` |
-| Preview | cualquier PR | Supabase de desarrollo (proyecto compartido o por-PR si se decide) | URL generada por Vercel por PR |
-| Producción | `main` | Supabase producción | dominio final (pendiente, ver Checkpoint) |
+| Entorno    | Rama         | Base de datos                                                      | URL                                       |
+| ---------- | ------------ | ------------------------------------------------------------------ | ----------------------------------------- |
+| Local      | cualquiera   | Supabase local (Docker)                                            | `localhost:3000`                          |
+| Preview    | cualquier PR | Supabase de desarrollo (proyecto compartido o por-PR si se decide) | URL generada por Vercel por PR            |
+| Producción | `main`       | Supabase producción                                                | dominio final (pendiente, ver Checkpoint) |
 
 ## Integración Vercel
 

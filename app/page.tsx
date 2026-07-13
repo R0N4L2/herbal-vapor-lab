@@ -36,10 +36,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section
-        aria-label="Pilares del proyecto"
-        className="mt-20 grid gap-8 sm:grid-cols-3"
-      >
+      <section aria-label="Pilares del proyecto" className="mt-20 grid gap-8 sm:grid-cols-3">
         {pillars.map((pillar) => (
           <div key={pillar.title} className="rounded-lg border border-border p-6">
             <h2 className="font-semibold">{pillar.title}</h2>
@@ -58,8 +55,8 @@ export default function HomePage() {
 
       <footer className="mt-20 border-t border-border pt-8 text-center text-xs text-muted-foreground">
         <p>
-          Este sitio tiene fines informativos y educativos. No sustituye el diagnóstico, consejo
-          o tratamiento de un profesional de salud cualificado.{' '}
+          Este sitio tiene fines informativos y educativos. No sustituye el diagnóstico, consejo o
+          tratamiento de un profesional de salud cualificado.{' '}
           <Link href="/aviso-medico" className="underline underline-offset-2">
             Leer aviso médico completo
           </Link>

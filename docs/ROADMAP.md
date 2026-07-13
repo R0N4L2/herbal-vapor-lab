@@ -6,7 +6,7 @@ comunicar dirección, no el tracker de tareas.
 
 ## MVP (Sprints 0–6)
 
-- **Sprint 0** — Bootstrap técnico y documental. *En curso.*
+- **Sprint 0** — Bootstrap técnico y documental. _En curso._
 - **Sprint 1** — Sistema de diseño y páginas públicas con datos mock: landing, catálogo de
   plantas, ficha de planta, páginas legales/informativas, SEO básico, primera pasada de
   accesibilidad.

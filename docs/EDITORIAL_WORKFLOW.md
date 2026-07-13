@@ -34,7 +34,7 @@ a nivel de política RLS/constraint, no solo de convención de equipo.
 
 Ver `docs/EVIDENCE_MODEL.md` y `docs/CONTENT_POLICY.md` — todos los campos obligatorios de una
 afirmación (fuente, nivel de evidencia, vía, limitaciones, fecha de revisión) deben existir
-*antes* de esta transición; la transición se bloquea (constraint de base de datos + validación
+_antes_ de esta transición; la transición se bloquea (constraint de base de datos + validación
 de Server Action) si falta alguno.
 
 ## Caso especial: `inhalation_records`

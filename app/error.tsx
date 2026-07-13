@@ -1,6 +1,11 @@
 'use client';
 
-export default function GlobalError({ reset }: { error: Error & { digest?: string }; reset: () => void }) {
+export default function GlobalError({
+  reset,
+}: {
+  error: Error & { digest?: string };
+  reset: () => void;
+}) {
   return (
     <main className="mx-auto flex min-h-[60vh] max-w-2xl flex-col items-center justify-center px-4 text-center">
       <h1 className="text-2xl font-semibold">Ocurrió un error</h1>

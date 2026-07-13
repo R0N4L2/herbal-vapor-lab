@@ -6,6 +6,4 @@
  * ejecuta contra una base de datos aún no aprovisionada.
  */
 
-console.log(
-  'check:content — sin reglas activas todavía (Sprint 3). Ver docs/CONTENT_POLICY.md.',
-);
+console.log('check:content — sin reglas activas todavía (Sprint 3). Ver docs/CONTENT_POLICY.md.');

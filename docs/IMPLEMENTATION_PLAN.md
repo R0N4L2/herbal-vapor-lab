@@ -43,16 +43,16 @@ Documento vivo. Se actualiza al cierre de cada sprint. Fuente de verdad de alcan
 
 ## Estado por sprint
 
-| Sprint | Alcance | Estado |
-|---|---|---|
-| 0 — Auditoría y bootstrap | Repo, rama, Next.js, docs base, calidad, CI básico, primer commit | **En curso — este PR** |
-| 1 — Diseño y páginas públicas | Sistema visual, layout, landing, catálogos con mocks, fichas, legal, a11y inicial, SEO | Pendiente |
-| 2 — Supabase y modelo editorial | Migraciones, RLS, tipos, seed, auth, roles, admin, CRUD, auditoría | Pendiente |
-| 3 — Evidencia y seguridad | Fuentes, afirmaciones, reviews, safety warnings, checker de contenido | Pendiente |
-| 4 — Búsqueda, cuentas y refinamiento | Full-text search, filtros, favoritos, colecciones, E2E, performance | Pendiente |
-| 5 — GitHub, CI/CD y producción | Branch protection, Vercel, Supabase producción, smoke tests, URL pública | Pendiente — **requiere acción humana** |
-| 6 — Contenido revisado | Fichas iniciales verificadas y publicadas | Pendiente |
-| 7 — IA responsable (opcional) | pgvector, RAG con citas, guardrails | Pospuesto, post-MVP |
+| Sprint                               | Alcance                                                                                | Estado                                 |
+| ------------------------------------ | -------------------------------------------------------------------------------------- | -------------------------------------- |
+| 0 — Auditoría y bootstrap            | Repo, rama, Next.js, docs base, calidad, CI básico, primer commit                      | **En curso — este PR**                 |
+| 1 — Diseño y páginas públicas        | Sistema visual, layout, landing, catálogos con mocks, fichas, legal, a11y inicial, SEO | Pendiente                              |
+| 2 — Supabase y modelo editorial      | Migraciones, RLS, tipos, seed, auth, roles, admin, CRUD, auditoría                     | Pendiente                              |
+| 3 — Evidencia y seguridad            | Fuentes, afirmaciones, reviews, safety warnings, checker de contenido                  | Pendiente                              |
+| 4 — Búsqueda, cuentas y refinamiento | Full-text search, filtros, favoritos, colecciones, E2E, performance                    | Pendiente                              |
+| 5 — GitHub, CI/CD y producción       | Branch protection, Vercel, Supabase producción, smoke tests, URL pública               | Pendiente — **requiere acción humana** |
+| 6 — Contenido revisado               | Fichas iniciales verificadas y publicadas                                              | Pendiente                              |
+| 7 — IA responsable (opcional)        | pgvector, RAG con citas, guardrails                                                    | Pospuesto, post-MVP                    |
 
 ### Sprint 0 — detalle de lo entregado en este PR
 
@@ -120,20 +120,20 @@ Documento vivo. Se actualiza al cierre de cada sprint. Fuente de verdad de alcan
      `corepack prepare pnpm@9.15.0 --activate`; o
    - Instalar Node mediante `nvm-windows` (instalación por usuario, sin permisos de admin); o
    - Usar `npm install -g pnpm` si el PATH de npm global es escribible por el usuario.
-   Comando esperado: cualquiera de los anteriores, una sola vez.
-4. **GitHub CLI (`gh`)**: no instalado. No es obligatorio (se usa la API/MCP de GitHub como
+     Comando esperado: cualquiera de los anteriores, una sola vez.
+3. **GitHub CLI (`gh`)**: no instalado. No es obligatorio (se usa la API/MCP de GitHub como
    alternativa), pero si el propietario lo prefiere: `winget install GitHub.cli` (winget está
    disponible en esta máquina).
-5. **Vercel**: crear/enlazar el proyecto. Comando: `npx vercel login` seguido de
+4. **Vercel**: crear/enlazar el proyecto. Comando: `npx vercel login` seguido de
    `npx vercel link`, eligiendo la cuenta/organización correcta. Requiere login OAuth
    interactivo — no se puede automatizar.
-6. **Supabase**: crear el proyecto de producción en el dashboard de Supabase, guardar el
+5. **Supabase**: crear el proyecto de producción en el dashboard de Supabase, guardar el
    `project ref`, generar `publishable key` y `secret key`. Requiere decisión de organización y
    creación de un recurso — checkpoint humano explícito por `CLAUDE.md` §76.
-7. **GitHub Environment `production`** con los secrets `SUPABASE_ACCESS_TOKEN`,
+6. **GitHub Environment `production`** con los secrets `SUPABASE_ACCESS_TOKEN`,
    `SUPABASE_PROJECT_REF`, `SUPABASE_DB_PASSWORD` (y `VERCEL_*` si se usa el fallback de CLI):
    se configuran en GitHub → Settings → Environments. No se introducen secretos por chat.
-8. **Licencia final**: decidir si el proyecto será open source (y bajo qué licencia) o
+7. **Licencia final**: decidir si el proyecto será open source (y bajo qué licencia) o
    propietario, antes de Sprint 5.
 
 ## Próximo paso
