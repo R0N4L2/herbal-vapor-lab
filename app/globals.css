@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 30% 98%;
+    --foreground: 150 15% 12%;
+    --border: 150 10% 85%;
+    --primary: 152 45% 28%;
+    --primary-foreground: 40 30% 98%;
+    --muted: 150 10% 94%;
+    --muted-foreground: 150 8% 40%;
+    --radius: 0.5rem;
+
+    --evidence-high: 152 45% 28%;
+    --evidence-moderate: 45 70% 40%;
+    --evidence-low: 30 60% 45%;
+    --evidence-traditional: 210 15% 45%;
+
+    --risk-informational: 152 30% 35%;
+    --risk-caution: 40 75% 42%;
+    --risk-high: 20 75% 45%;
+    --risk-contraindicated: 0 65% 42%;
+  }
+
+  .dark {
+    --background: 150 20% 8%;
+    --foreground: 40 20% 95%;
+    --border: 150 12% 20%;
+    --primary: 152 40% 55%;
+    --primary-foreground: 150 20% 8%;
+    --muted: 150 12% 16%;
+    --muted-foreground: 150 8% 65%;
+
+    --evidence-high: 152 40% 55%;
+    --evidence-moderate: 45 65% 55%;
+    --evidence-low: 30 55% 58%;
+    --evidence-traditional: 210 15% 65%;
+
+    --risk-informational: 152 30% 55%;
+    --risk-caution: 40 70% 58%;
+    --risk-high: 20 70% 58%;
+    --risk-contraindicated: 0 60% 58%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  :focus-visible {
+    outline: 2px solid hsl(var(--primary));
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
