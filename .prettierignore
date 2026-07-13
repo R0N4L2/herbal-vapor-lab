@@ -1,0 +1,9 @@
+node_modules
+.pnpm-store
+.next
+out
+coverage
+playwright-report
+test-results
+blob-report
+pnpm-lock.yaml
