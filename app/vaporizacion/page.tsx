@@ -1,99 +1,43 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { HerbShowcaseCard, type HerbShowcaseEntry } from '@/components/herb-showcase-card';
+import { CATEGORY_META, CATEGORY_ORDER, getHerbsByCategory } from '@/lib/vaporizacion/herbs-data';
+import { headingFont } from '@/lib/vaporizacion/fonts';
 
 export const metadata: Metadata = {
   title: 'Vaporización de hierbas',
   description:
-    'Hierbas tradicionalmente asociadas a la aromaterapia y la vaporización, y un recorrido por la historia de liberar compuestos aromáticos con calor.',
+    'Hierbas tradicionalmente asociadas a la aromaterapia y la vaporización, organizadas por efecto terapéutico, con rangos de temperatura de referencia y un recorrido por la historia de liberar compuestos aromáticos con calor.',
 };
-
-const herbs: HerbShowcaseEntry[] = [
-  {
-    slug: 'manzanilla',
-    commonName: 'Manzanilla',
-    botanicalName: 'Matricaria recutita',
-    image: '/images/herbs/manzanilla.jpg',
-    imageAlt: 'Ilustración botánica de Matricaria recutita (manzanilla), Köhler’s Medizinal-Pflanzen, 1897',
-    certainty: 'traditional',
-    traditionalUse:
-      'Una de las plantas más usadas en infusión y aromaterapia, con una reputación tradicional de favorecer la relajación y el descanso.',
-    description:
-      'En difusores y vaporizadores se emplea para liberar su aroma dulce y ligeramente afrutado. Algunos de sus componentes, como la apigenina, se han estudiado en ensayos pequeños relacionados con ansiedad leve y calidad del sueño, con resultados mixtos y evidencia todavía limitada. No hay evidencia clínica específica sobre sus efectos por vía inhalada.',
-    attribution: 'Franz Eugen Köhler, Köhler’s Medizinal-Pflanzen (1897) · dominio público',
-  },
-  {
-    slug: 'menta',
-    commonName: 'Menta',
-    botanicalName: 'Mentha × piperita',
-    image: '/images/herbs/menta.jpg',
-    imageAlt: 'Ilustración botánica de Mentha × piperita (menta), Köhler’s Medizinal-Pflanzen, 1897',
-    certainty: 'low',
-    traditionalUse:
-      'Tradicionalmente asociada a una sensación de frescura, la menta se usa desde hace siglos en bálsamos, infusiones e inhalantes.',
-    description:
-      'Su compuesto característico, el mentol, produce una sensación fría al contacto con receptores de la piel y las mucosas, lo que puede generar una percepción subjetiva de mayor amplitud respiratoria sin que esto implique necesariamente un cambio medible en el flujo de aire. La investigación sobre esta sensación es preliminar y no constituye evidencia de eficacia terapéutica.',
-    attribution: 'Franz Eugen Köhler, Köhler’s Medizinal-Pflanzen (1897) · dominio público',
-  },
-  {
-    slug: 'lavanda',
-    commonName: 'Lavanda',
-    botanicalName: 'Lavandula angustifolia',
-    image: '/images/herbs/lavanda.jpg',
-    imageAlt: 'Ilustración botánica de Lavandula angustifolia (lavanda), Köhler’s Medizinal-Pflanzen, 1897',
-    certainty: 'low',
-    traditionalUse:
-      'Una de las plantas con mayor tradición en aromaterapia, empleada históricamente para acompañar rutinas de descanso y relajación.',
-    description:
-      'Es también una de las plantas aromáticas con más estudios pequeños publicados sobre sueño y ansiedad leve, aunque de calidad y tamaño variables. La evidencia disponible se considera preliminar y no respalda afirmaciones de tratamiento; se sigue investigando su mecanismo y la vía por la que sus compuestos podrían actuar.',
-    attribution: 'Franz Eugen Köhler, Köhler’s Medizinal-Pflanzen (1897) · dominio público',
-  },
-  {
-    slug: 'romero',
-    commonName: 'Romero',
-    botanicalName: 'Rosmarinus officinalis',
-    image: '/images/herbs/romero.jpg',
-    imageAlt: 'Ilustración botánica de Rosmarinus officinalis (romero), Köhler’s Medizinal-Pflanzen, 1897',
-    certainty: 'low',
-    traditionalUse:
-      'El romero carga una larga tradición popular asociada a la memoria y la claridad mental, presente en refranes de distintas culturas.',
-    description:
-      'El interés científico reciente se ha centrado en el 1,8-cineol, uno de sus compuestos volátiles, explorado en estudios preliminares sobre estado de alerta y estado de ánimo. Los resultados existentes provienen mayormente de muestras pequeñas y no permiten afirmar un efecto establecido, especialmente por vía inhalada.',
-    attribution: 'Franz Eugen Köhler, Köhler’s Medizinal-Pflanzen (1897) · dominio público',
-  },
-  {
-    slug: 'eucalipto',
-    commonName: 'Eucalipto',
-    botanicalName: 'Eucalyptus globulus',
-    image: '/images/herbs/eucalipto.jpg',
-    imageAlt: 'Ilustración botánica de Eucalyptus globulus (eucalipto), Köhler’s Medizinal-Pflanzen, 1897',
-    certainty: 'traditional',
-    traditionalUse:
-      'Sus hojas forman parte de remedios caseros de larga data para acompañar el malestar respiratorio, tradicionalmente mediante vahos de agua caliente.',
-    description:
-      'El eucaliptol (1,8-cineol) es su compuesto más estudiado, con investigación clínica preliminar principalmente sobre formas orales. La vaporización o inhalación directa de sus compuestos no ha pasado todavía por la revisión de evidencia de este proyecto: aquí no se afirma que sea una vía más segura o más eficaz que otras, y no se dan indicaciones de temperatura ni de uso.',
-    attribution: 'Franz Eugen Köhler, Köhler’s Medizinal-Pflanzen (1897) · dominio público',
-  },
-];
 
 export default function VaporizacionPage() {
   return (
     <main id="main-content" className="mx-auto max-w-5xl px-4 py-16 sm:py-24">
       <section aria-labelledby="vapor-heading" className="text-center">
-        <h1 id="vapor-heading" className="text-3xl font-semibold tracking-tight sm:text-5xl">
+        <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
+          Vaporización · Hierbas y aromaterapia
+        </p>
+        <h1
+          id="vapor-heading"
+          className={`${headingFont.className} mt-3 text-4xl font-bold tracking-tight text-primary sm:text-6xl`}
+        >
           Hierbas y vaporización
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-balance text-muted-foreground">
-          Un recorrido por algunas de las plantas más asociadas a la aromaterapia y la
-          vaporización, y por la larga historia humana de liberar compuestos aromáticos con calor.
+          Un recorrido por plantas asociadas a la aromaterapia y la vaporización, organizadas por
+          efecto terapéutico, y por la larga historia humana de liberar compuestos aromáticos con
+          calor.
         </p>
+        <div className="mx-auto mt-8 h-px w-24 bg-primary/30" />
       </section>
 
       <section className="mt-10 rounded-lg border border-border bg-muted p-6 text-sm text-muted-foreground">
         <p>
           Este contenido tiene fines informativos y educativos. No sustituye el diagnóstico,
-          consejo o tratamiento de un profesional de salud cualificado, y no recomienda dosis,
-          temperaturas ni una vía de administración sobre otra.{' '}
+          consejo o tratamiento de un profesional de salud cualificado. Los rangos de temperatura
+          son valores de referencia (algunos tomados de una guía de referencia del proyecto, otros
+          de fuentes comunitarias no verificadas clínicamente, según se indica en cada ficha) y no
+          constituyen una recomendación médica ni una afirmación de eficacia o seguridad por vía
+          inhalada.{' '}
           <Link href="/aviso-medico" className="underline underline-offset-2">
             Leer aviso médico completo
           </Link>
@@ -101,14 +45,45 @@ export default function VaporizacionPage() {
         </p>
       </section>
 
-      <section aria-label="Hierbas asociadas a la vaporización" className="mt-16 space-y-8">
-        {herbs.map((herb) => (
-          <HerbShowcaseCard key={herb.slug} herb={herb} />
-        ))}
+      <section aria-label="Categorías" className="mt-16 grid gap-6 sm:grid-cols-2">
+        {CATEGORY_ORDER.map((slug) => {
+          const meta = CATEGORY_META[slug];
+          const count = getHerbsByCategory(slug).length;
+          return (
+            <Link
+              key={slug}
+              href={`/vaporizacion/${slug}`}
+              className="rounded-lg border border-border p-6 transition-colors hover:border-primary/40 hover:bg-muted"
+            >
+              <h2 className={`${headingFont.className} text-lg font-semibold text-primary`}>
+                {meta.label}
+              </h2>
+              <p className="mt-2 text-sm text-muted-foreground">{meta.tagline}</p>
+              <p className="mt-4 text-xs text-muted-foreground">
+                {count} {count === 1 ? 'hierba' : 'hierbas'}
+              </p>
+            </Link>
+          );
+        })}
+        <Link
+          href="/vaporizacion/combinaciones"
+          className="rounded-lg border border-border p-6 transition-colors hover:border-primary/40 hover:bg-muted"
+        >
+          <h2 className={`${headingFont.className} text-lg font-semibold text-primary`}>
+            Combinaciones
+          </h2>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Combinaciones de dos hierbas y su temperatura sugerida.
+          </p>
+          <p className="mt-4 text-xs text-muted-foreground">5 combinaciones</p>
+        </Link>
       </section>
 
       <section aria-labelledby="historia-heading" className="mt-20">
-        <h2 id="historia-heading" className="text-2xl font-semibold tracking-tight">
+        <h2
+          id="historia-heading"
+          className={`${headingFont.className} text-2xl font-bold tracking-tight text-primary`}
+        >
           Una historia larga antes que una tendencia
         </h2>
         <div className="mt-6 space-y-4 text-sm text-muted-foreground">

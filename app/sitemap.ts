@@ -16,6 +16,13 @@ const staticRoutes = [
   '/privacidad',
   '/terminos',
   '/aviso-medico',
+  '/vaporizacion',
+  '/vaporizacion/concentracion',
+  '/vaporizacion/relajacion',
+  '/vaporizacion/respiratorio',
+  '/vaporizacion/digestivo',
+  '/vaporizacion/cannabis',
+  '/vaporizacion/combinaciones',
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
