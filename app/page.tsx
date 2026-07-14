@@ -26,12 +26,18 @@ export default function HomePage() {
           Explora usos tradicionales, evidencia disponible, compuestos y precauciones en una
           biblioteca herbal diseñada para informar, no para prescribir.
         </p>
-        <div className="mt-8">
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
           <Link
             href="/plantas"
             className="inline-flex items-center rounded-md bg-primary px-6 py-3 text-sm font-medium text-primary-foreground hover:opacity-90"
           >
             Explorar plantas
+          </Link>
+          <Link
+            href="/vaporizacion"
+            className="inline-flex items-center rounded-md border border-border px-6 py-3 text-sm font-medium hover:bg-muted"
+          >
+            Hierbas y vaporización
           </Link>
         </div>
       </section>
