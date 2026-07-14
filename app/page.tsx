@@ -1,74 +1,137 @@
 import Link from 'next/link';
+import type { Metadata } from 'next';
+import { herbs } from '@/lib/vaporizacion/herbs-data';
+import { headingFont } from '@/lib/vaporizacion/fonts';
 
-const pillars = [
-  {
-    title: 'Botánica clara',
-    description: 'Nombres, partes utilizadas y preparaciones de cada planta.',
-  },
-  {
-    title: 'Evidencia visible',
-    description: 'Conoce qué se estudió, con qué diseño y con qué nivel de certeza.',
-  },
-  {
-    title: 'Seguridad primero',
-    description: 'Interacciones, contraindicaciones y poblaciones de riesgo, sin rodeos.',
-  },
-];
+export const metadata: Metadata = {
+  title: 'Vaporización de hierbas',
+  description:
+    'Hierbas tradicionalmente asociadas a la aromaterapia y la vaporización, organizadas por efecto terapéutico, con rangos de temperatura de referencia y un recorrido por la historia de liberar compuestos aromáticos con calor.',
+};
 
 export default function HomePage() {
   return (
     <main id="main-content" className="mx-auto max-w-5xl px-4 py-16 sm:py-24">
-      <section aria-labelledby="hero-heading" className="text-center">
-        <h1 id="hero-heading" className="text-3xl font-semibold tracking-tight sm:text-5xl">
-          Conoce las plantas más allá de los mitos.
+      <section aria-labelledby="vapor-heading" className="text-center">
+        <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
+          Vaporización · Hierbas y aromaterapia
+        </p>
+        <h1
+          id="vapor-heading"
+          className={`${headingFont.className} mt-3 text-4xl font-bold tracking-tight text-primary sm:text-6xl`}
+        >
+          Hierbas y vaporización
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-balance text-muted-foreground">
-          Explora usos tradicionales, evidencia disponible, compuestos y precauciones en una
-          biblioteca herbal diseñada para informar, no para prescribir.
+          Un recorrido por plantas asociadas a la aromaterapia y la vaporización, organizadas por
+          efecto terapéutico, y por la larga historia humana de liberar compuestos aromáticos con
+          calor.
         </p>
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-          <Link
-            href="/plantas"
-            className="inline-flex items-center rounded-md bg-primary px-6 py-3 text-sm font-medium text-primary-foreground hover:opacity-90"
-          >
-            Explorar plantas
-          </Link>
-          <Link
-            href="/vaporizacion"
-            className="inline-flex items-center rounded-md border border-border px-6 py-3 text-sm font-medium hover:bg-muted"
-          >
-            Hierbas y vaporización
-          </Link>
-        </div>
+        <div className="mx-auto mt-8 h-px w-24 bg-primary/30" />
       </section>
 
-      <section aria-label="Pilares del proyecto" className="mt-20 grid gap-8 sm:grid-cols-3">
-        {pillars.map((pillar) => (
-          <div key={pillar.title} className="rounded-lg border border-border p-6">
-            <h2 className="font-semibold">{pillar.title}</h2>
-            <p className="mt-2 text-sm text-muted-foreground">{pillar.description}</p>
-          </div>
-        ))}
-      </section>
-
-      <section className="mt-20 rounded-lg border border-border bg-muted p-6 text-center">
-        <p className="font-medium">Natural no siempre significa inocuo.</p>
-        <p className="mt-2 text-sm text-muted-foreground">
-          Cada ficha distingue tradición, evidencia preclínica y evidencia clínica, con fuentes
-          verificables y fecha de revisión.
-        </p>
-      </section>
-
-      <footer className="mt-20 border-t border-border pt-8 text-center text-xs text-muted-foreground">
+      <section className="mt-10 rounded-lg border border-border bg-muted p-6 text-sm text-muted-foreground">
         <p>
-          Este sitio tiene fines informativos y educativos. No sustituye el diagnóstico, consejo o
-          tratamiento de un profesional de salud cualificado.{' '}
+          Este contenido tiene fines informativos y educativos. No sustituye el diagnóstico,
+          consejo o tratamiento de un profesional de salud cualificado. Los rangos de temperatura
+          son valores de referencia (algunos tomados de una guía de referencia del proyecto, otros
+          de fuentes comunitarias no verificadas clínicamente, según se indica en cada ficha) y no
+          constituyen una recomendación médica ni una afirmación de eficacia o seguridad por vía
+          inhalada.{' '}
           <Link href="/aviso-medico" className="underline underline-offset-2">
             Leer aviso médico completo
           </Link>
           .
         </p>
-      </footer>
+      </section>
+
+      <section aria-labelledby="aceites-heading" className="mt-16">
+        <h2
+          id="aceites-heading"
+          className={`${headingFont.className} text-2xl font-bold tracking-tight text-primary`}
+        >
+          Aceites esenciales y temperaturas de referencia
+        </h2>
+        <p className="mt-3 max-w-2xl text-sm text-muted-foreground">
+          Temperatura mínima, óptima y máxima de referencia para cada hierba, la planta de origen y
+          su propiedad terapéutica principal documentada en la tradición o en estudios
+          preliminares.
+        </p>
+        <div className="mt-6 overflow-x-auto">
+          <table className="w-full min-w-[720px] border-collapse text-sm">
+            <thead>
+              <tr className="border-b border-border text-left">
+                <th className="py-3 pr-4 font-medium">Aceite esencial</th>
+                <th className="py-3 pr-4 font-medium">Mín.</th>
+                <th className="py-3 pr-4 font-medium">Óptima</th>
+                <th className="py-3 pr-4 font-medium">Máx.</th>
+                <th className="py-3 pr-4 font-medium">Planta de origen</th>
+                <th className="py-3 font-medium">Propiedades terapéuticas</th>
+              </tr>
+            </thead>
+            <tbody>
+              {herbs
+                .filter((herb) => herb.temps)
+                .map((herb) => (
+                  <tr key={herb.slug} className="border-b border-border/60">
+                    <td className="py-3 pr-4 font-medium">{herb.commonName}</td>
+                    <td className="py-3 pr-4 font-mono text-xs text-muted-foreground">
+                      {herb.temps!.min}°C
+                    </td>
+                    <td className="py-3 pr-4 font-mono text-xs text-muted-foreground">
+                      {herb.temps!.optimal}°C
+                    </td>
+                    <td className="py-3 pr-4 font-mono text-xs text-muted-foreground">
+                      {herb.temps!.max}°C
+                    </td>
+                    <td className="py-3 pr-4 italic text-muted-foreground">
+                      {herb.botanicalName}
+                    </td>
+                    <td className="py-3 text-muted-foreground">{herb.mainAction}</td>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section aria-labelledby="historia-heading" className="mt-20">
+        <h2
+          id="historia-heading"
+          className={`${headingFont.className} text-2xl font-bold tracking-tight text-primary`}
+        >
+          Una historia larga antes que una tendencia
+        </h2>
+        <div className="mt-6 space-y-4 text-sm text-muted-foreground">
+          <p>
+            Calentar plantas para liberar sus compuestos aromáticos es una práctica que aparece,
+            de forma independiente, en culturas muy distintas y muy anteriores a cualquier
+            dispositivo electrónico. En Mesopotamia y Egipto se quemaban resinas e hierbas con
+            fines rituales y medicinales miles de años atrás. En Mesoamérica, el temazcal —una
+            construcción cerrada donde se vierte agua sobre piedras calientes, a veces con hierbas
+            aromáticas— sigue practicándose hoy como parte de tradiciones de limpieza y comunidad.
+          </p>
+          <p>
+            Prácticas similares surgieron en paralelo en otras regiones: la sauna finlandesa, donde
+            el vapor (löyly) se genera vertiendo agua sobre piedras calientes, a veces con hojas de
+            abedul; el hammam del mundo islámico y mediterráneo, construido alrededor del vapor de
+            agua como espacio social e higiénico; y el mushi-buro japonés, un baño de vapor
+            antecesor del baño de inmersión más conocido hoy. En casi todos los casos, el vapor de
+            agua —con o sin plantas— fue durante siglos la tecnología disponible para calentar sin
+            quemar directamente el material vegetal.
+          </p>
+          <p>
+            Los vaporizadores modernos, ya sean de aceites esenciales o de otros materiales
+            vegetales, son una reinterpretación reciente de esa misma idea: aplicar calor
+            controlado para liberar los compuestos volátiles de una planta. La química detrás
+            —terpenos, fenoles y otros aceites esenciales— es hoy objeto de estudio en campos como
+            la farmacognosia, pero la investigación sobre qué ocurre específicamente cuando estos
+            compuestos se inhalan sigue siendo incipiente. Este sitio no evalúa aquí la seguridad
+            relativa de distintas vías de administración; ese análisis, cuando exista, pasará por
+            el modelo de evidencia propio del proyecto.
+          </p>
+        </div>
+      </section>
     </main>
   );
 }

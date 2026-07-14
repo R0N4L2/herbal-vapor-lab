@@ -16,7 +16,6 @@ const staticRoutes = [
   '/privacidad',
   '/terminos',
   '/aviso-medico',
-  '/vaporizacion',
   '/vaporizacion/concentracion',
   '/vaporizacion/relajacion',
   '/vaporizacion/respiratorio',

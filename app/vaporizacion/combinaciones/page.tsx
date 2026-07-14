@@ -12,7 +12,7 @@ export default function CombinacionesPage() {
   return (
     <main id="main-content" className="mx-auto max-w-5xl px-4 py-16 sm:py-24">
       <Link
-        href="/vaporizacion"
+        href="/"
         className="text-sm text-muted-foreground underline-offset-2 hover:text-primary hover:underline"
       >
         ← Todas las categorías

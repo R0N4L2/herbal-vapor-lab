@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { ThemeProvider } from '@/components/theme-provider';
+import { CategoryNav } from '@/components/vaporizacion/category-nav';
 import './globals.css';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000';
@@ -25,6 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           >
             Saltar al contenido principal
           </a>
+          <CategoryNav />
           {children}
         </ThemeProvider>
       </body>

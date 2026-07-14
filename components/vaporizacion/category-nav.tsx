@@ -46,12 +46,12 @@ export function CategoryNav() {
     <nav
       ref={navRef}
       aria-label="Categorías terapéuticas"
-      className="sticky top-0 z-30 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80"
+      className="sticky top-0 z-30 bg-primary text-primary-foreground shadow-sm"
     >
       <div className="mx-auto flex max-w-5xl flex-wrap items-center gap-1 px-4 py-2 text-sm">
         <Link
-          href="/vaporizacion"
-          className={`${headingFont.className} mr-2 shrink-0 text-sm font-semibold text-primary`}
+          href="/"
+          className={`${headingFont.className} mr-2 shrink-0 text-sm font-semibold text-primary-foreground`}
         >
           Vaporización
         </Link>
@@ -80,8 +80,8 @@ export function CategoryNav() {
                     open(slug);
                   }
                 }}
-                className={`inline-flex items-center rounded-md px-3 py-1.5 font-medium transition-colors hover:bg-muted hover:text-primary ${
-                  isActive || isOpen ? 'bg-muted text-primary' : 'text-foreground'
+                className={`inline-flex items-center rounded-md px-3 py-1.5 font-medium text-primary-foreground transition-colors hover:bg-primary-foreground/10 ${
+                  isActive || isOpen ? 'bg-primary-foreground/15' : ''
                 }`}
               >
                 {meta.label}
@@ -127,10 +127,10 @@ export function CategoryNav() {
                 open('combinaciones');
               }
             }}
-            className={`inline-flex items-center rounded-md px-3 py-1.5 font-medium transition-colors hover:bg-muted hover:text-primary ${
+            className={`inline-flex items-center rounded-md px-3 py-1.5 font-medium text-primary-foreground transition-colors hover:bg-primary-foreground/10 ${
               pathname === '/vaporizacion/combinaciones' || openSlug === 'combinaciones'
-                ? 'bg-muted text-primary'
-                : 'text-foreground'
+                ? 'bg-primary-foreground/15'
+                : ''
             }`}
           >
             Combinaciones

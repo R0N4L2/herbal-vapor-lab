@@ -4,13 +4,13 @@
 
 @layer base {
   :root {
-    --background: 40 30% 98%;
-    --foreground: 150 15% 12%;
-    --border: 150 10% 85%;
+    --background: 32 38% 90%;
+    --foreground: 20 30% 16%;
+    --border: 28 25% 78%;
     --primary: 152 45% 28%;
     --primary-foreground: 40 30% 98%;
-    --muted: 150 10% 94%;
-    --muted-foreground: 150 8% 40%;
+    --muted: 30 30% 84%;
+    --muted-foreground: 25 20% 35%;
     --radius: 0.5rem;
 
     --evidence-high: 152 45% 28%;
