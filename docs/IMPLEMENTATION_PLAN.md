@@ -122,15 +122,12 @@ Documento vivo. Se actualiza al cierre de cada sprint. Fuente de verdad de alcan
 3. **GitHub CLI (`gh`)**: no instalado. No es obligatorio (se usa la API/MCP de GitHub como
    alternativa), pero si el propietario lo prefiere: `winget install GitHub.cli` (winget está
    disponible en esta máquina).
-4. **Vercel**: crear/enlazar el proyecto. Comando: `npx vercel login` seguido de
-   `npx vercel link`, eligiendo la cuenta/organización correcta. Requiere login OAuth
-   interactivo — no se puede automatizar.
-5. **Supabase**: crear el proyecto de producción en el dashboard de Supabase, guardar el
-   `project ref`, generar `publishable key` y `secret key`. Requiere decisión de organización y
-   creación de un recurso — checkpoint humano explícito por `CLAUDE.md` §76.
-6. **GitHub Environment `production`** con los secrets `SUPABASE_ACCESS_TOKEN`,
-   `SUPABASE_PROJECT_REF`, `SUPABASE_DB_PASSWORD` (y `VERCEL_*` si se usa el fallback de CLI):
-   se configuran en GitHub → Settings → Environments. No se introducen secretos por chat.
+4. ~~**Vercel**~~: resuelto — proyecto enlazado, integración Git App con GitHub activa,
+   despliegue de producción en `https://herbal-vapor-lab.vercel.app`.
+5. ~~**Supabase**~~: resuelto — proyecto de producción creado y conectado vía la integración
+   de marketplace Vercel↔Supabase.
+6. ~~**GitHub Environment `production`**~~: resuelto — secrets configurados por el propietario
+   vía GitHub → Settings → Environments.
 7. ~~**Licencia final**~~: resuelto — Apache License 2.0.
 
 ## Próximo paso
