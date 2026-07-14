@@ -86,7 +86,7 @@ Ver [`CONTRIBUTING.md`](./CONTRIBUTING.md).
 
 ## Licencia
 
-Ver [`LICENSE`](./LICENSE) — pendiente de decisión final sobre licencia open source.
+Apache License 2.0. Ver [`LICENSE`](./LICENSE).
 
 ## Aviso médico
 

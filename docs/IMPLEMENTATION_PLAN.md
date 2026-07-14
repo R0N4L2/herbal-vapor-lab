@@ -32,9 +32,9 @@ Documento vivo. Se actualiza al cierre de cada sprint. Fuente de verdad de alcan
    máquina requiere que el propietario habilite pnpm con privilegios adecuados** (ver
    "Pendiente de acción humana"). Esto no bloquea CI, que corre en runners limpios sin esta
    restricción.
-3. **LICENSE** se dejó como "todos los derechos reservados" como placeholder explícito —
-   pendiente de que el propietario decida si el proyecto será open source antes del
-   lanzamiento.
+3. **LICENSE**: el propietario decidió licenciar el proyecto como open source bajo
+   **Apache License 2.0**. Reemplaza el placeholder inicial de "todos los derechos
+   reservados".
 4. El esquema completo de base de datos (~38 tablas descritas en `CLAUDE.md` Parte V) se
    implementa en **Sprint 2**, no en Sprint 0. Sprint 0 solo deja Supabase listo para
    inicializarse localmente (`supabase/config.toml`).
@@ -94,8 +94,6 @@ Documento vivo. Se actualiza al cierre de cada sprint. Fuente de verdad de alcan
 - **Sin `gh` CLI**: los pasos futuros que el `CLAUDE.md` describe con `gh` (branch protection,
   milestones, issues) se harán vía la API/MCP de GitHub o vía la interfaz web; se documentará
   cada vez que se use una vía alternativa.
-- **Licencia sin decidir**: no bloquea Sprint 0-4, pero debe resolverse antes de Sprint 5
-  (publicación real).
 - **Sin `pnpm-lock.yaml` todavía**: consecuencia directa del bloqueo de Kaspersky — nunca se pudo
   ejecutar `pnpm install` localmente para generarlo. El primer CI del PR de Sprint 0 falló porque
   `setup-node` con `cache: pnpm` requiere ese lockfile. Se relajó temporalmente el workflow
@@ -133,8 +131,7 @@ Documento vivo. Se actualiza al cierre de cada sprint. Fuente de verdad de alcan
 6. **GitHub Environment `production`** con los secrets `SUPABASE_ACCESS_TOKEN`,
    `SUPABASE_PROJECT_REF`, `SUPABASE_DB_PASSWORD` (y `VERCEL_*` si se usa el fallback de CLI):
    se configuran en GitHub → Settings → Environments. No se introducen secretos por chat.
-7. **Licencia final**: decidir si el proyecto será open source (y bajo qué licencia) o
-   propietario, antes de Sprint 5.
+7. ~~**Licencia final**~~: resuelto — Apache License 2.0.
 
 ## Próximo paso
 
