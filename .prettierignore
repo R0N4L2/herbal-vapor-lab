@@ -7,3 +7,7 @@ playwright-report
 test-results
 blob-report
 pnpm-lock.yaml
+
+# Vendored third-party agent skills (supabase/agent-skills), not our source
+.agents/skills
+.claude/skills
