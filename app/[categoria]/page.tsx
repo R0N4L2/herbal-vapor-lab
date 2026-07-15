@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const meta = CATEGORY_META[categoria as keyof typeof CATEGORY_META];
   if (!meta) return {};
   return {
-    title: `${meta.label} — Vaporización de hierbas`,
+    title: meta.label,
     description: meta.tagline,
   };
 }

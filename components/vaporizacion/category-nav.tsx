@@ -48,7 +48,15 @@ export function CategoryNav() {
       aria-label="Categorías terapéuticas"
       className="sticky top-0 z-30 bg-primary text-primary-foreground shadow-sm"
     >
-      <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-1 px-4 py-2 text-sm">
+      <div className="mx-auto flex max-w-5xl items-center gap-2 px-4 py-2 text-sm">
+        <Link
+          href="/"
+          className={`${headingFont.className} hidden shrink-0 text-sm font-bold tracking-wide text-primary-foreground sm:block`}
+        >
+          VAPORA
+        </Link>
+
+        <div className="flex flex-1 flex-wrap items-center justify-center gap-1">
         {CATEGORY_ORDER.map((slug) => {
           const meta = CATEGORY_META[slug];
           const herbsInCategory = getHerbsByCategory(slug);
@@ -157,6 +165,23 @@ export function CategoryNav() {
             </div>
           )}
         </div>
+
+        <Link
+          href="/blog"
+          className={`inline-flex shrink-0 items-center rounded-md px-3 py-1.5 font-medium text-primary-foreground transition-colors hover:bg-primary-foreground/10 ${
+            pathname === '/blog' || pathname?.startsWith('/blog/') ? 'bg-primary-foreground/15' : ''
+          }`}
+        >
+          Blog
+        </Link>
+        </div>
+
+        <span
+          aria-hidden
+          className={`${headingFont.className} invisible hidden shrink-0 text-sm font-bold tracking-wide sm:block`}
+        >
+          VAPORA
+        </span>
       </div>
     </nav>
   );

@@ -23,6 +23,7 @@ const staticRoutes = [
   '/digestivo',
   '/cannabis',
   '/combinaciones',
+  '/blog',
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

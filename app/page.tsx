@@ -1,9 +1,8 @@
-import Link from 'next/link';
 import type { Metadata } from 'next';
 import { headingFont } from '@/lib/vaporizacion/fonts';
 
 export const metadata: Metadata = {
-  title: 'Vaporización de hierbas',
+  title: { absolute: 'VAPORA — Herbal Experience' },
   description:
     'Hierbas tradicionalmente asociadas a la aromaterapia y la vaporización, organizadas por efecto terapéutico, con rangos de temperatura de referencia y un recorrido por la historia de liberar compuestos aromáticos con calor.',
 };
@@ -29,44 +28,7 @@ export default function HomePage() {
         <div className="mx-auto mt-8 h-px w-24 bg-primary/30" />
       </section>
 
-      <section className="mt-10 rounded-lg border border-border bg-muted p-6 text-sm text-muted-foreground">
-        <p>
-          Este contenido tiene fines informativos y educativos. No sustituye el diagnóstico,
-          consejo o tratamiento de un profesional de salud cualificado. Los rangos de temperatura
-          son valores de referencia (algunos tomados de una guía de referencia del proyecto, otros
-          de fuentes comunitarias no verificadas clínicamente, según se indica en cada ficha) y no
-          constituyen una recomendación médica ni una afirmación de eficacia o seguridad por vía
-          inhalada.{' '}
-          <Link href="/aviso-medico" className="underline underline-offset-2">
-            Leer aviso médico completo
-          </Link>
-          .
-        </p>
-      </section>
-
-      <section
-        aria-labelledby="aceites-heading"
-        className="mt-16 rounded-lg border border-border bg-muted/60 p-6 text-center"
-      >
-        <h2
-          id="aceites-heading"
-          className={`${headingFont.className} text-2xl font-bold tracking-tight text-primary`}
-        >
-          Aceites esenciales y temperaturas de referencia
-        </h2>
-        <p className="mx-auto mt-3 max-w-2xl text-sm text-muted-foreground">
-          El compuesto químico real presente en cada hierba, su temperatura de evaporación de
-          referencia y la planta de origen, en una tabla dedicada.
-        </p>
-        <Link
-          href="/aceites"
-          className="mt-4 inline-block text-sm font-medium text-primary underline underline-offset-2"
-        >
-          Ver tabla completa →
-        </Link>
-      </section>
-
-      <section aria-labelledby="historia-heading" className="mt-20">
+      <section aria-labelledby="historia-heading" className="mt-16">
         <h2
           id="historia-heading"
           className={`${headingFont.className} text-2xl font-bold tracking-tight text-primary`}

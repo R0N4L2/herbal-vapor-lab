@@ -4,7 +4,7 @@ import { combinaciones } from '@/lib/vaporizacion/herbs-data';
 import { headingFont } from '@/lib/vaporizacion/fonts';
 
 export const metadata: Metadata = {
-  title: 'Combinaciones — Vaporización de hierbas',
+  title: 'Combinaciones',
   description: 'Combinaciones de hierbas de referencia y su temperatura sugerida.',
 };
 

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { ThemeProvider } from '@/components/theme-provider';
 import { CategoryNav } from '@/components/vaporizacion/category-nav';
+import { SiteFooter } from '@/components/site-footer';
 import './globals.css';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000';
@@ -8,8 +9,8 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000';
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Herbal Evidence Lab',
-    template: '%s · Herbal Evidence Lab',
+    default: 'VAPORA — Herbal Experience',
+    template: '%s · Vapora',
   },
   description:
     'Explora plantas medicinales con evidencia, tradición y seguridad claramente diferenciadas.',
@@ -28,6 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </a>
           <CategoryNav />
           {children}
+          <SiteFooter />
         </ThemeProvider>
       </body>
     </html>
