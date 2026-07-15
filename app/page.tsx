@@ -1,8 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { herbs } from '@/lib/vaporizacion/herbs-data';
 import { headingFont } from '@/lib/vaporizacion/fonts';
-import { formatCompoundTemp, lookupCompoundTemp, parseCompounds } from '@/lib/vaporizacion/compound-temps';
 
 export const metadata: Metadata = {
   title: 'Vaporización de hierbas',
@@ -46,67 +44,26 @@ export default function HomePage() {
         </p>
       </section>
 
-      <section aria-labelledby="aceites-heading" className="mt-16">
+      <section
+        aria-labelledby="aceites-heading"
+        className="mt-16 rounded-lg border border-border bg-muted/60 p-6 text-center"
+      >
         <h2
           id="aceites-heading"
           className={`${headingFont.className} text-2xl font-bold tracking-tight text-primary`}
         >
           Aceites esenciales y temperaturas de referencia
         </h2>
-        <p className="mt-3 max-w-2xl text-sm text-muted-foreground">
-          Compuesto químico real presente en cada hierba, su temperatura de evaporación de
-          referencia, la planta de origen y la propiedad terapéutica principal documentada en la
-          tradición o en estudios preliminares. Los valores de temperatura provienen de fuentes
-          químicas públicas (PubChem, CRC Handbook, fichas de seguridad de proveedores). Cuando el
-          compuesto listado es una clase genérica (por ejemplo, flavonoides o mucílagos) o no
-          cuenta con un punto de evaporación único y consistente entre fuentes, se indica con un
-          guion en vez de inventar un valor.
+        <p className="mx-auto mt-3 max-w-2xl text-sm text-muted-foreground">
+          El compuesto químico real presente en cada hierba, su temperatura de evaporación de
+          referencia y la planta de origen, en una tabla dedicada.
         </p>
-        <div className="mt-6 overflow-x-auto">
-          <table className="w-full min-w-[720px] border-collapse text-sm">
-            <thead>
-              <tr className="border-b border-border text-left">
-                <th className="py-3 pr-4 font-medium">Compuesto</th>
-                <th className="py-3 pr-4 font-medium">Temp. de evaporación</th>
-                <th className="py-3 pr-4 font-medium">Planta de origen</th>
-                <th className="py-3 font-medium">Propiedades terapéuticas</th>
-              </tr>
-            </thead>
-            <tbody>
-              {herbs
-                .filter((herb) => herb.compounds)
-                .flatMap((herb) =>
-                  parseCompounds(herb.compounds!).map((compound) => {
-                    const compoundTemp = lookupCompoundTemp(compound);
-                    return (
-                      <tr key={`${herb.slug}-${compound}`} className="border-b border-border/60">
-                        <td className="py-3 pr-4 font-medium">{compound}</td>
-                        <td className="py-3 pr-4 font-mono text-xs text-muted-foreground">
-                          {compoundTemp ? (
-                            formatCompoundTemp(compoundTemp)
-                          ) : (
-                            <span title="Clase de compuesto genérica o sin punto de evaporación único documentado en fuentes químicas.">
-                              —
-                            </span>
-                          )}
-                        </td>
-                        <td className="py-3 pr-4 text-muted-foreground">
-                          {herb.commonName} <span className="italic">({herb.botanicalName})</span>
-                        </td>
-                        <td className="py-3 text-muted-foreground">{herb.mainAction}</td>
-                      </tr>
-                    );
-                  }),
-              )}
-            </tbody>
-          </table>
-        </div>
-        <p className="mt-3 text-xs text-muted-foreground">
-          * El acetato de alfa-terpinilo no tiene un punto de ebullición único y consistente entre
-          fuentes químicas (se citan valores entre ≈220°C y ≈240°C); se muestra un valor
-          aproximado. La cafeína no hierve a presión atmosférica: se sublima (pasa de sólido a
-          vapor) a la temperatura indicada.
-        </p>
+        <Link
+          href="/aceites"
+          className="mt-4 inline-block text-sm font-medium text-primary underline underline-offset-2"
+        >
+          Ver tabla completa →
+        </Link>
       </section>
 
       <section aria-labelledby="historia-heading" className="mt-20">

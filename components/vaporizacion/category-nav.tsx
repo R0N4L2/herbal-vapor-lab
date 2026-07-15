@@ -48,18 +48,12 @@ export function CategoryNav() {
       aria-label="Categorías terapéuticas"
       className="sticky top-0 z-30 bg-primary text-primary-foreground shadow-sm"
     >
-      <div className="mx-auto flex max-w-5xl flex-wrap items-center gap-1 px-4 py-2 text-sm">
-        <Link
-          href="/"
-          className={`${headingFont.className} mr-2 shrink-0 text-sm font-semibold text-primary-foreground`}
-        >
-          Vaporización
-        </Link>
+      <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-1 px-4 py-2 text-sm">
         {CATEGORY_ORDER.map((slug) => {
           const meta = CATEGORY_META[slug];
           const herbsInCategory = getHerbsByCategory(slug);
           const isOpen = openSlug === slug;
-          const isActive = pathname === `/vaporizacion/${slug}`;
+          const isActive = pathname === `/${slug}`;
           const previewNames = herbsInCategory.slice(0, 4).map((h) => h.commonName);
 
           return (
@@ -70,7 +64,7 @@ export function CategoryNav() {
               onMouseLeave={scheduleClose}
             >
               <Link
-                href={`/vaporizacion/${slug}`}
+                href={`/${slug}`}
                 aria-expanded={isOpen}
                 onFocus={() => open(slug)}
                 onBlur={scheduleClose}
@@ -100,7 +94,7 @@ export function CategoryNav() {
                     {herbsInCategory.length > previewNames.length ? '…' : ''}
                   </p>
                   <Link
-                    href={`/vaporizacion/${slug}`}
+                    href={`/${slug}`}
                     className="mt-3 inline-block text-xs font-medium text-primary underline underline-offset-2"
                   >
                     Ver categoría →
@@ -111,13 +105,22 @@ export function CategoryNav() {
           );
         })}
 
+        <Link
+          href="/aceites"
+          className={`inline-flex shrink-0 items-center rounded-md px-3 py-1.5 font-medium text-primary-foreground transition-colors hover:bg-primary-foreground/10 ${
+            pathname === '/aceites' ? 'bg-primary-foreground/15' : ''
+          }`}
+        >
+          Aceites
+        </Link>
+
         <div
           className="relative shrink-0"
           onMouseEnter={() => open('combinaciones')}
           onMouseLeave={scheduleClose}
         >
           <Link
-            href="/vaporizacion/combinaciones"
+            href="/combinaciones"
             aria-expanded={openSlug === 'combinaciones'}
             onFocus={() => open('combinaciones')}
             onBlur={scheduleClose}
@@ -128,7 +131,7 @@ export function CategoryNav() {
               }
             }}
             className={`inline-flex items-center rounded-md px-3 py-1.5 font-medium text-primary-foreground transition-colors hover:bg-primary-foreground/10 ${
-              pathname === '/vaporizacion/combinaciones' || openSlug === 'combinaciones'
+              pathname === '/combinaciones' || openSlug === 'combinaciones'
                 ? 'bg-primary-foreground/15'
                 : ''
             }`}
@@ -146,7 +149,7 @@ export function CategoryNav() {
                 Combinaciones de dos hierbas y su temperatura sugerida.
               </p>
               <Link
-                href="/vaporizacion/combinaciones"
+                href="/combinaciones"
                 className="mt-3 inline-block text-xs font-medium text-primary underline underline-offset-2"
               >
                 Ver combinaciones →
