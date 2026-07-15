@@ -21,7 +21,6 @@ const staticRoutes = [
   '/relajacion',
   '/respiratorio',
   '/digestivo',
-  '/cannabis',
   '/combinaciones',
   '/blog',
 ];

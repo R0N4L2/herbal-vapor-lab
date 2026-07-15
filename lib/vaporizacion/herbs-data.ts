@@ -26,11 +26,6 @@ export const CATEGORY_META: Record<
     label: 'Digestivo',
     tagline: 'Hierbas tradicionalmente asociadas a la digestión y el malestar estomacal.',
   },
-  cannabis: {
-    slug: 'cannabis',
-    label: 'Cannabis',
-    tagline: 'Una planta con un perfil propio, tratada aparte por su estatus legal y su química particular.',
-  },
 };
 
 export const CATEGORY_ORDER: HerbCategory[] = [
@@ -38,7 +33,6 @@ export const CATEGORY_ORDER: HerbCategory[] = [
   'relajacion',
   'respiratorio',
   'digestivo',
-  'cannabis',
 ];
 
 export const herbs: HerbShowcaseEntry[] = [
@@ -346,6 +340,29 @@ export const herbs: HerbShowcaseEntry[] = [
     precautions: 'No debe confundirse con la adormidera (Papaver somniferum)',
     dataSource: 'comunidad',
   },
+  {
+    slug: 'cannabis',
+    commonName: 'Cannabis',
+    botanicalName: 'Cannabis sativa / Cannabis indica',
+    image: '/images/herbs/cannabis.jpg',
+    imageAlt: 'Ilustración botánica de Cannabis sativa, Köhler’s Medizinal-Pflanzen, 1897',
+    certainty: 'low',
+    category: 'relajacion',
+    traditionalUse:
+      'El cannabis tiene un uso medicinal y ritual documentado desde hace milenios en distintas culturas, y hoy es, además, la planta con más literatura clínica publicada de toda esta lista.',
+    description:
+      'A diferencia del resto de las plantas de esta guía, el cannabis cuenta con un cuerpo de investigación clínica extenso sobre sus cannabinoides (THC, CBD) y su vía inhalada específicamente. Ese cuerpo de evidencia no ha pasado por el modelo de revisión propio de este proyecto y no se resume aquí: el objetivo de esta ficha es únicamente ofrecer un rango de temperatura de referencia, no una evaluación de eficacia o seguridad.',
+    attribution: KOHLER,
+    temps: { min: 160, optimal: 185, max: 205 },
+    compounds: 'THC; CBD; terpenos (mirceno, limoneno, pineno)',
+    mainAction:
+      'Variable según la cepa y la proporción THC:CBD — relajación, analgesia percibida y alteración del ánimo, entre otros efectos reportados',
+    precautions:
+      'Puede alterar la capacidad de conducir u operar maquinaria; contraindicado en embarazo, lactancia, menores de edad y antecedentes de psicosis; puede interactuar con otros medicamentos',
+    legalNote:
+      'El estatus legal del cannabis varía según el país y la jurisdicción. Verificá la normativa local antes de cualquier uso; este sitio no promueve su uso donde no esté permitido.',
+    dataSource: 'comunidad',
+  },
 
   // ---- Respiratorio ----
   {
@@ -590,31 +607,6 @@ export const herbs: HerbShowcaseEntry[] = [
     mainAction: 'Digestión (uso tradicional)',
     dataSource: 'comunidad',
   },
-
-  // ---- Cannabis ----
-  {
-    slug: 'cannabis',
-    commonName: 'Cannabis',
-    botanicalName: 'Cannabis sativa / Cannabis indica',
-    image: '/images/herbs/cannabis.jpg',
-    imageAlt: 'Ilustración botánica de Cannabis sativa, Köhler’s Medizinal-Pflanzen, 1897',
-    certainty: 'low',
-    category: 'cannabis',
-    traditionalUse:
-      'El cannabis tiene un uso medicinal y ritual documentado desde hace milenios en distintas culturas, y hoy es, además, la planta con más literatura clínica publicada de toda esta lista.',
-    description:
-      'A diferencia del resto de las plantas de esta guía, el cannabis cuenta con un cuerpo de investigación clínica extenso sobre sus cannabinoides (THC, CBD) y su vía inhalada específicamente. Ese cuerpo de evidencia no ha pasado por el modelo de revisión propio de este proyecto y no se resume aquí: el objetivo de esta ficha es únicamente ofrecer un rango de temperatura de referencia, no una evaluación de eficacia o seguridad.',
-    attribution: KOHLER,
-    temps: { min: 160, optimal: 185, max: 205 },
-    compounds: 'THC; CBD; terpenos (mirceno, limoneno, pineno)',
-    mainAction:
-      'Variable según la cepa y la proporción THC:CBD — relajación, analgesia percibida y alteración del ánimo, entre otros efectos reportados',
-    precautions:
-      'Puede alterar la capacidad de conducir u operar maquinaria; contraindicado en embarazo, lactancia, menores de edad y antecedentes de psicosis; puede interactuar con otros medicamentos',
-    legalNote:
-      'El estatus legal del cannabis varía según el país y la jurisdicción. Verificá la normativa local antes de cualquier uso; este sitio no promueve su uso donde no esté permitido.',
-    dataSource: 'comunidad',
-  },
 ];
 
 export function getHerbsByCategory(category: HerbCategory): HerbShowcaseEntry[] {
@@ -627,6 +619,7 @@ export type Combinacion = {
   objetivo: string;
   temperatura: number;
   comentario: string;
+  comoSeMezclan: string;
 };
 
 export const combinaciones: Combinacion[] = [
@@ -636,6 +629,7 @@ export const combinaciones: Combinacion[] = [
     objetivo: 'Concentración',
     temperatura: 175,
     comentario: 'Enfoque prolongado',
+    comoSeMezclan: 'Partes iguales, ambas hierbas trituradas juntas antes de cargar la cámara.',
   },
   {
     slug: 'romero-menta',
@@ -643,6 +637,7 @@ export const combinaciones: Combinacion[] = [
     objetivo: 'Concentración',
     temperatura: 150,
     comentario: 'Alerta mental',
+    comoSeMezclan: 'Partes iguales, trituradas de forma homogénea para una liberación pareja.',
   },
   {
     slug: 'lavanda-manzanilla',
@@ -650,6 +645,7 @@ export const combinaciones: Combinacion[] = [
     objetivo: 'Relajación',
     temperatura: 125,
     comentario: 'Relajación',
+    comoSeMezclan: 'Dos partes de lavanda por una de manzanilla, mezcladas antes de cargar la cámara.',
   },
   {
     slug: 'melisa-pasiflora',
@@ -657,6 +653,7 @@ export const combinaciones: Combinacion[] = [
     objetivo: 'Sueño',
     temperatura: 150,
     comentario: 'Calma',
+    comoSeMezclan: 'Partes iguales, trituradas juntas para una mezcla homogénea.',
   },
   {
     slug: 'eucalipto-tomillo',
@@ -664,5 +661,6 @@ export const combinaciones: Combinacion[] = [
     objetivo: 'Respiratorio',
     temperatura: 180,
     comentario: 'Descongestión',
+    comoSeMezclan: 'Partes iguales; triturar juntas para que ambas liberen su aceite esencial de forma pareja.',
   },
 ];

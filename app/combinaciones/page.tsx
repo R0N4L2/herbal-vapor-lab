@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { combinaciones } from '@/lib/vaporizacion/herbs-data';
+import { OBJETIVO_ICONS } from '@/lib/vaporizacion/category-icons';
 import { headingFont } from '@/lib/vaporizacion/fonts';
 
 export const metadata: Metadata = {
@@ -33,26 +34,36 @@ export default function CombinacionesPage() {
       </section>
 
       <section aria-label="Tabla de combinaciones" className="mt-16 overflow-x-auto">
-        <table className="w-full min-w-[480px] border-collapse text-sm">
+        <table className="w-full min-w-[640px] border-collapse text-sm">
           <thead>
             <tr className="border-b border-border text-left">
-              <th className="py-3 pr-4 font-medium">Combinación</th>
               <th className="py-3 pr-4 font-medium">Objetivo</th>
+              <th className="py-3 pr-4 font-medium">Combinación</th>
               <th className="py-3 pr-4 font-medium">Temperatura sugerida</th>
-              <th className="py-3 font-medium">Comentario</th>
+              <th className="py-3 pr-4 font-medium">Comentario</th>
+              <th className="py-3 font-medium">Cómo se mezclan</th>
             </tr>
           </thead>
           <tbody>
-            {combinaciones.map((combo) => (
-              <tr key={combo.slug} className="border-b border-border/60">
-                <td className="py-3 pr-4">{combo.nombre}</td>
-                <td className="py-3 pr-4 text-muted-foreground">{combo.objetivo}</td>
-                <td className="py-3 pr-4 font-mono text-xs text-muted-foreground">
-                  {combo.temperatura}°C
-                </td>
-                <td className="py-3 text-muted-foreground">{combo.comentario}</td>
-              </tr>
-            ))}
+            {combinaciones.map((combo) => {
+              const Icon = OBJETIVO_ICONS[combo.objetivo];
+              return (
+                <tr key={combo.slug} className="border-b border-border/60">
+                  <td className="py-3 pr-4 text-muted-foreground">
+                    <span className="inline-flex items-center gap-1.5">
+                      {Icon && <Icon aria-hidden className="h-4 w-4 shrink-0" />}
+                      {combo.objetivo}
+                    </span>
+                  </td>
+                  <td className="py-3 pr-4">{combo.nombre}</td>
+                  <td className="py-3 pr-4 font-mono text-xs text-muted-foreground">
+                    {combo.temperatura}°C
+                  </td>
+                  <td className="py-3 pr-4 text-muted-foreground">{combo.comentario}</td>
+                  <td className="py-3 text-muted-foreground">{combo.comoSeMezclan}</td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </section>

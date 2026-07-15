@@ -12,20 +12,59 @@ export default function HomePage() {
     <main id="main-content" className="mx-auto max-w-5xl px-4 py-16 sm:py-24">
       <section aria-labelledby="vapor-heading" className="text-center">
         <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
-          Vaporización · Hierbas y aromaterapia
+          VAPORA · Vaporización herbal y aromaterapia
         </p>
         <h1
           id="vapor-heading"
           className={`${headingFont.className} mt-3 text-4xl font-bold tracking-tight text-primary sm:text-6xl`}
         >
-          Hierbas y vaporización
+          Bienestar natural, hierba por hierba
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-balance text-muted-foreground">
-          Un recorrido por plantas asociadas a la aromaterapia y la vaporización, organizadas por
-          efecto terapéutico, y por la larga historia humana de liberar compuestos aromáticos con
-          calor.
+          En VAPORA acercamos la sabiduría herbal de siempre a tu día a día: hierbas organizadas
+          por objetivo —concentración, relajación, digestión, respiración—, temperaturas de
+          referencia y toda la información que necesitas para empezar con criterio. Sin promesas
+          vacías: solo tradición, evidencia disponible y mucha curiosidad por las plantas.
         </p>
         <div className="mx-auto mt-8 h-px w-24 bg-primary/30" />
+      </section>
+
+      <section aria-labelledby="quienes-somos-heading" className="mt-16">
+        <h2
+          id="quienes-somos-heading"
+          className={`${headingFont.className} text-2xl font-bold tracking-tight text-primary`}
+        >
+          Quiénes somos
+        </h2>
+        <div className="mt-6 space-y-6 text-sm text-muted-foreground">
+          <div>
+            <h3 className="font-semibold text-primary">Orígenes</h3>
+            <p className="mt-2">
+              VAPORA nace de una inquietud simple: la vaporización herbal lleva miles de años
+              practicándose en culturas de todo el mundo, pero la información disponible en
+              español suele estar dispersa, incompleta o mezclar tradición con afirmaciones sin
+              respaldo. Quisimos reunir ambas cosas —la sabiduría tradicional y lo que hoy
+              realmente se sabe— en un solo lugar, claro y honesto.
+            </p>
+          </div>
+          <div>
+            <h3 className="font-semibold text-primary">Visión</h3>
+            <p className="mt-2">
+              Ser la referencia en español para entender la vaporización herbal y la
+              aromaterapia: un espacio confiable donde la tradición y la evidencia disponible
+              conviven sin exagerar ni minimizar lo que cada planta puede ofrecer.
+            </p>
+          </div>
+          <div>
+            <h3 className="font-semibold text-primary">Misión</h3>
+            <p className="mt-2">
+              Mejorar la calidad de vida de quienes nos visitan, entregando conocimiento claro
+              sobre los tratamientos terapéuticos asociados a la vaporización herbal, para que
+              cada persona pueda explorar esta práctica con información real y tomar decisiones
+              más informadas sobre su bienestar.
+            </p>
+          </div>
+        </div>
       </section>
 
       <section aria-labelledby="historia-heading" className="mt-16">

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { Droplet } from 'lucide-react';
 import { herbs } from '@/lib/vaporizacion/herbs-data';
 import { headingFont } from '@/lib/vaporizacion/fonts';
 import { formatCompoundTemp, lookupCompoundTemp, parseCompounds } from '@/lib/vaporizacion/compound-temps';
@@ -23,8 +24,9 @@ export default function AceitesPage() {
       <section aria-labelledby="aceites-heading" className="mt-6 text-center">
         <h1
           id="aceites-heading"
-          className={`${headingFont.className} text-4xl font-bold tracking-tight text-primary sm:text-6xl`}
+          className={`${headingFont.className} flex items-center justify-center gap-3 text-4xl font-bold tracking-tight text-primary sm:text-6xl`}
         >
+          <Droplet aria-hidden className="h-9 w-9 shrink-0 sm:h-12 sm:w-12" />
           Aceites esenciales y temperaturas de referencia
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-balance text-muted-foreground">

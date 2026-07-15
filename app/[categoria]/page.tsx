@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { HerbShowcaseCard } from '@/components/herb-showcase-card';
 import { CATEGORY_META, CATEGORY_ORDER, getHerbsByCategory } from '@/lib/vaporizacion/herbs-data';
+import { CATEGORY_ICONS } from '@/lib/vaporizacion/category-icons';
 import { headingFont } from '@/lib/vaporizacion/fonts';
 
 type Props = {
@@ -29,6 +30,7 @@ export default async function CategoriaPage({ params }: Props) {
   if (!meta) notFound();
 
   const herbsInCategory = getHerbsByCategory(meta.slug);
+  const Icon = CATEGORY_ICONS[meta.slug];
 
   return (
     <main id="main-content" className="mx-auto max-w-5xl px-4 py-16 sm:py-24">
@@ -42,8 +44,9 @@ export default async function CategoriaPage({ params }: Props) {
       <section aria-labelledby="categoria-heading" className="mt-6 text-center">
         <h1
           id="categoria-heading"
-          className={`${headingFont.className} text-4xl font-bold tracking-tight text-primary sm:text-6xl`}
+          className={`${headingFont.className} flex items-center justify-center gap-3 text-4xl font-bold tracking-tight text-primary sm:text-6xl`}
         >
+          <Icon aria-hidden className="h-9 w-9 shrink-0 sm:h-12 sm:w-12" />
           {meta.label}
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-balance text-muted-foreground">{meta.tagline}</p>
@@ -52,16 +55,6 @@ export default async function CategoriaPage({ params }: Props) {
         </p>
         <div className="mx-auto mt-8 h-px w-24 bg-primary/30" />
       </section>
-
-      {meta.slug === 'cannabis' && (
-        <section className="mt-10 rounded-lg border border-risk-caution/30 bg-risk-caution/10 p-6 text-sm">
-          <p>
-            El estatus legal del cannabis varía según el país y la jurisdicción. Este contenido es
-            informativo y no promueve su uso donde no esté permitido; verificá la normativa local
-            antes de cualquier uso.
-          </p>
-        </section>
-      )}
 
       <section aria-label={`Hierbas de la categoría ${meta.label}`} className="mt-16 space-y-8">
         {herbsInCategory.map((herb) => (

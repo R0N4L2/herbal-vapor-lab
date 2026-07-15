@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { headingFont } from '@/lib/vaporizacion/fonts';
 
-export type HerbCategory = 'concentracion' | 'relajacion' | 'respiratorio' | 'digestivo' | 'cannabis';
+export type HerbCategory = 'concentracion' | 'relajacion' | 'respiratorio' | 'digestivo';
 
 export type HerbVaporTemps = {
   min: number;

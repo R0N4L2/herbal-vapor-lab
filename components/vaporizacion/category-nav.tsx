@@ -3,7 +3,9 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
+import { Droplet } from 'lucide-react';
 import { CATEGORY_META, CATEGORY_ORDER, getHerbsByCategory } from '@/lib/vaporizacion/herbs-data';
+import { CATEGORY_ICONS } from '@/lib/vaporizacion/category-icons';
 import { headingFont } from '@/lib/vaporizacion/fonts';
 
 export function CategoryNav() {
@@ -59,6 +61,7 @@ export function CategoryNav() {
         <div className="flex flex-1 flex-wrap items-center justify-center gap-1">
         {CATEGORY_ORDER.map((slug) => {
           const meta = CATEGORY_META[slug];
+          const Icon = CATEGORY_ICONS[slug];
           const herbsInCategory = getHerbsByCategory(slug);
           const isOpen = openSlug === slug;
           const isActive = pathname === `/${slug}`;
@@ -82,10 +85,11 @@ export function CategoryNav() {
                     open(slug);
                   }
                 }}
-                className={`inline-flex items-center rounded-md px-3 py-1.5 font-medium text-primary-foreground transition-colors hover:bg-primary-foreground/10 ${
+                className={`inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 font-medium text-primary-foreground transition-colors hover:bg-primary-foreground/10 ${
                   isActive || isOpen ? 'bg-primary-foreground/15' : ''
                 }`}
               >
+                <Icon aria-hidden className="h-4 w-4 shrink-0" />
                 {meta.label}
               </Link>
 
@@ -115,10 +119,11 @@ export function CategoryNav() {
 
         <Link
           href="/aceites"
-          className={`inline-flex shrink-0 items-center rounded-md px-3 py-1.5 font-medium text-primary-foreground transition-colors hover:bg-primary-foreground/10 ${
+          className={`inline-flex shrink-0 items-center gap-1.5 rounded-md px-3 py-1.5 font-medium text-primary-foreground transition-colors hover:bg-primary-foreground/10 ${
             pathname === '/aceites' ? 'bg-primary-foreground/15' : ''
           }`}
         >
+          <Droplet aria-hidden className="h-4 w-4 shrink-0" />
           Aceites
         </Link>
 
