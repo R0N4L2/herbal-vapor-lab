@@ -1,5 +1,9 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
+import { Droplet } from 'lucide-react';
 import { headingFont } from '@/lib/vaporizacion/fonts';
+import { CATEGORY_META, CATEGORY_ORDER } from '@/lib/vaporizacion/herbs-data';
+import { CATEGORY_ICONS } from '@/lib/vaporizacion/category-icons';
 
 export const metadata: Metadata = {
   title: { absolute: 'VAPORA — Herbal Experience' },
@@ -27,6 +31,32 @@ export default function HomePage() {
           vacías: solo tradición, evidencia disponible y mucha curiosidad por las plantas.
         </p>
         <div className="mx-auto mt-8 h-px w-24 bg-primary/30" />
+      </section>
+
+      <section aria-label="Explorar por categoría" className="mt-16">
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5">
+          {CATEGORY_ORDER.map((slug) => {
+            const meta = CATEGORY_META[slug];
+            const Icon = CATEGORY_ICONS[slug];
+            return (
+              <Link
+                key={slug}
+                href={`/${slug}`}
+                className="flex flex-col items-center gap-2 rounded-lg border border-border p-4 text-center transition-colors hover:border-primary hover:bg-primary/5"
+              >
+                <Icon aria-hidden className="h-6 w-6 text-primary" />
+                <span className="text-sm font-medium text-primary">{meta.label}</span>
+              </Link>
+            );
+          })}
+          <Link
+            href="/aceites"
+            className="flex flex-col items-center gap-2 rounded-lg border border-border p-4 text-center transition-colors hover:border-primary hover:bg-primary/5"
+          >
+            <Droplet aria-hidden className="h-6 w-6 text-primary" />
+            <span className="text-sm font-medium text-primary">Aceites</span>
+          </Link>
+        </div>
       </section>
 
       <section aria-labelledby="quienes-somos-heading" className="mt-16">
